@@ -39,6 +39,7 @@
   justify-content: space-around;
   align-items: center;
   box-shadow: 0 0 10px var(--primary);
+  z-index: 100;
 }
 
 .logoContainer {
@@ -105,6 +106,23 @@
   padding-left: 2rem;
 }
 
+.middleLogo {
+  display: flex;
+  justify-content: center;
+  -webkit-animation-name: flipping;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 2s;
+  animation-name: flipping;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
 footer {
   height: 6vh;
   display: flex;
@@ -146,5 +164,28 @@ footer {
   }
   .header {
     padding: 0 0.5rem;
+  }
+}
+
+/* WebKit and Opera browsers */
+@-webkit-keyframes flipping {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+/* all other browsers */
+@keyframes flipping {
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
   }
 }
